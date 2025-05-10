@@ -12,6 +12,7 @@ const Header = () => {
             className="ml-6 mr-6"
             width={100}
             height={100}
+            style={{ width: 'auto', height: 'auto' }}
           />
           <div className="flex px-4 space-x-5">
             <Link href="/">Offers</Link>
