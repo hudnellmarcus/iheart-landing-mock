@@ -36,7 +36,7 @@ export const recommendations: Recommendation[] = [
         id: 'rec-001',
         title: 'Jess Hilarious also wears Detroit Sunglasses',
         description: 'As worn by Jess Hilarious',
-        imageUrl: '/jesshilarious.png',
+        imageUrl: '/jess_hilarious.png',
         link: ''
     },
     {
