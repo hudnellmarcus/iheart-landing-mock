@@ -20,7 +20,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between bg-gray-400/30 py-3 rounded-lg w-[50vw]"
+      className="flex justify-between bg-gray-200 py-3 rounded-lg w-[50vw]"
     >
       <div className="flex px-4 gap-4">
         <Image src="/Image.png" alt="image icon" width={20} height={20} />

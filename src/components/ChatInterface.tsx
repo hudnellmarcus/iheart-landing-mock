@@ -43,15 +43,8 @@ const ChatInterface = () => {
   const handleSendMessage = (text: string) => {
     // user message
     addNewMessage(text, "user");
-
-    //bot response with timeout
-    /* setTimeout(() => {
-      addNewMessage(
-        "Sure! Here are some stylish sunglasses that iHeart listeners are buying!",
-        "bot"
-      ); */
-
-    // add product display
+    
+    // bot response with product display for sunglasses
     if (text.toLowerCase().includes("sunglasses")) {
       setTimeout(() => {
         setMessages((prevMessages) => [
@@ -69,45 +62,40 @@ const ChatInterface = () => {
 
   return (
     <div className="flex h-screen w-full overflow-hidden">
-      <div className="w-64 h-full flex flex-shrink-0 border-r border-gray-200">
+      <div className="w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>
+      
       {/* chat area */}
       <div className="flex-1 overflow-y-auto p-4 flex flex-col mx-auto">
         {/* chat messages */}
         <div className="max-w-3xl mt-auto mb-14 space-y-6">
           {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`p-3 rounded-lg max-w-md ${
-                message.sender === "user"
-                  ? "ml-auto w-auto bg-gray-200 text-iheart-red"
-                  : ""
-              }`}
-            >
+            <div key={message.id} className="clear-both mb-4">
               {message.text === "product-sunglasses" ? (
                 <ProductDisplay
-                  title="💸 😎 Here are some stylish sunglasses thatiHeart listeners are buying!"
+                  title="💸 😎 Here are some stylish sunglasses that iHeart listeners are buying!"
                   products={sunglasses}
                 />
               ) : (
-                <p>{message.text}</p>
+                <p 
+                  className={`rounded-lg ${
+                    message.sender === "user"
+                      ? "float-right bg-gray-200 text-iheart-red py-1 px-2 rounded-full clear-both"
+                      : "bg-gray-100 p-3 inline-block"
+                  }`}
+                >
+                  {message.text}
+                </p>
               )}
             </div>
           ))}
-          {/* <ProductDisplay
-        title="💸 😎 Here are some stylish sunglasses thatiHeart listeners are buying!"
-        products={sunglasses} /> */}
-          {/* <ProductDisplay
-        title="🤑 💄 Got it! Here are some Red Lipsticks that iHeart listeners are buying!"
-        products={premiumLipsticks} /> 
-          <ProductDisplay
-            title="🤑 💄 No problem! Here are some Red Lipsticks at a lower price"
-            products={budgetLipsticks}
-          />*/}
-          {/* <PodcastRecommendation podcast={podcasts[0]} /> */}
+          
+          {/* Scroll anchor */}
           <div ref={messagesEndRef} />
         </div>
+        
+        {/* Chat input */}
         <div className="p-4 fixed z-10 bottom-10 right-50 border border-green-200">
           <div className="max-w-3xl mx-auto">
             <ChatInput onSendMessage={handleSendMessage} />
