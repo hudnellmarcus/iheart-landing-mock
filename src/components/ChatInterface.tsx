@@ -5,30 +5,37 @@ import ChatInput from "./ChatInput";
 import MessageItem from "./MessageItem";
 import { useChat } from "@/hooks/useChat";
 import { Message, MessageType } from "@/data/messages";
-import { useSearchParams } from "next/navigation";
 import { useQueryStore } from "@/store/queryStore";
 
 const ChatInterface = () => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const { messages, handleSendMessage } = useChat();
-  const searchParams = useSearchParams();
   const setInitialQuery = useQueryStore((state) => state.setInitialQuery);
   const initialQuery = useQueryStore((state) => state.initialQuery);
-
+  
+  const processedQueriesRef = useRef(new Set<string>); // tracking processed queries 
   // scroll to bottom of chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
-   if(initialQuery !== undefined) {
+   if(initialQuery && !processedQueriesRef.current.has(initialQuery)) {
+    console.log("Processing initial query:", initialQuery);
+
+    //mark as processed immediately 
+    processedQueriesRef.current.add(initialQuery);
+
     handleSendMessage(initialQuery);
+    // clear the initial query after sending
+    // this is to prevent sending the same query again when the component re-renders
+    // or when the user navigates back to the chat interface
     setInitialQuery(undefined);
    }
   }, [initialQuery, handleSendMessage, setInitialQuery]);
 
   return (
-    <div className="flex h-screen w-full mt-6 overflow-hidden">
+    <div className="flex h-screen w-full mt-6">
       <div className="w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>

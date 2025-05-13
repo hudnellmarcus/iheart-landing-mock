@@ -11,7 +11,12 @@ export function useChat() {
         },
     ]);
 
-    const addNewMessage = useCallback((text: string, sender: "user" | "bot", messageType: MessageType = "text", contentId?: string) => {
+    const addNewMessage = useCallback((
+        text: string,
+        sender: "user" | "bot",
+        messageType: MessageType = "text",
+        contentId?: string
+    ) => {
         const newMessage: Message = {
             id: Date.now().toString(),
             text,
@@ -24,71 +29,34 @@ export function useChat() {
     }, [setMessages]);
 
 
-    const handleSunglassesQuery = useCallback(() => {
-        //sunglass chat logic 
+     const handleSunglassesQuery = useCallback(() => {
         setTimeout(() => {
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                {
-                    id: Date.now().toString(),
-                    text: "",
-                    sender: "bot",
-                    timestamp: new Date(),
-                    messageType: "product-sunglasses",
-                },
-            ]);
-
+            addNewMessage("", "bot", "product-sunglasses");
+            
             setTimeout(() => {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    {
-                        id: Date.now().toString(),
-                        text: "",
-                        sender: "bot",
-                        timestamp: new Date(),
-                        messageType: "style-rec",
-                        contentId: "rec-001",
-                    },
-                ]);
-
+                addNewMessage("", "bot", "style-rec", "rec-001");
+                
                 setTimeout(() => {
-                    setMessages((prevMessages) => [
-                        ...prevMessages,
-                        {
-                            id: Date.now().toString(),
-                            text: "",
-                            sender: "bot",
-                            timestamp: new Date(),
-                            messageType: "podcast-rec",
-                            contentId: "podcast-001",
-                        },
-                    ]);
+                    addNewMessage("", "bot", "podcast-rec", "podcast-001");
                 }, 6000);
             }, 3000);
         }, 10);
-    },[addNewMessage, setMessages]);
+    }, [addNewMessage]);
 
-    const handleLipstickQuery = useCallback((text: string) => {
+   const handleLipstickQuery = useCallback((text: string) => {
         const showCheaperOption = text.toLowerCase().includes("cheap")
             || text.toLowerCase().includes("budget")
             || text.toLowerCase().includes("less expensive")
-            || text.toLowerCase().includes("budget")
             || text.toLowerCase().includes("cheaper");
 
-
         setTimeout(() => {
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                {
-                    id: Date.now().toString(),
-                    text: "",
-                    sender: "bot",
-                    timestamp: new Date(),
-                    messageType: showCheaperOption ? "product-budget-lipstick" : "product-lipstick",
-                },
-            ]);
+            addNewMessage(
+                "", 
+                "bot", 
+                showCheaperOption ? "product-budget-lipstick" : "product-lipstick"
+            );
         }, 1000);
-    },[addNewMessage, setMessages]);
+    }, [addNewMessage]);
 
     const handleSendMessage = useCallback((text: string) => {
         // user message
@@ -106,7 +74,7 @@ export function useChat() {
         }
 
     }, [addNewMessage, handleSunglassesQuery, handleLipstickQuery]);
-    
+
     return { messages, handleSendMessage };
 
 }
