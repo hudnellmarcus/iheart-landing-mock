@@ -29,13 +29,13 @@ export function useChat() {
     }, [setMessages]);
 
 
-     const handleSunglassesQuery = useCallback(() => {
+    const handleSunglassesQuery = useCallback(() => {
         setTimeout(() => {
             addNewMessage("", "bot", "product-sunglasses");
-            
+
             setTimeout(() => {
                 addNewMessage("", "bot", "style-rec", "rec-001");
-                
+
                 setTimeout(() => {
                     addNewMessage("", "bot", "podcast-rec", "podcast-001");
                 }, 6000);
@@ -43,18 +43,25 @@ export function useChat() {
         }, 10);
     }, [addNewMessage]);
 
-   const handleLipstickQuery = useCallback((text: string) => {
+    const handleLipstickQuery = useCallback((text: string) => {
         const showCheaperOption = text.toLowerCase().includes("cheap")
             || text.toLowerCase().includes("budget")
             || text.toLowerCase().includes("less expensive")
             || text.toLowerCase().includes("cheaper");
 
         setTimeout(() => {
-            addNewMessage(
-                "", 
-                "bot", 
-                showCheaperOption ? "product-budget-lipstick" : "product-lipstick"
-            );
+            if (showCheaperOption) {
+                addNewMessage(
+                    "", "bot", "product-budget-lipstick");
+                    setTimeout(() => {
+                        addNewMessage("", "bot", "style-rec", "rec-002");
+                    }, 5000);
+            } else {
+                addNewMessage("", "bot", "product-lipstick");
+                setTimeout(() => {
+                    addNewMessage("", "bot", "podcast-rec", "podcast-002");
+                }, 3000);
+            }
         }, 1000);
     }, [addNewMessage]);
 

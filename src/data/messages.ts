@@ -13,6 +13,7 @@ export type MessageType =
   | "product-lipstick"
   | "product-budget-lipstick"
   | "podcast-rec"
+  | "event-rec"
   | "style-rec";
 
 export type Podcast = {

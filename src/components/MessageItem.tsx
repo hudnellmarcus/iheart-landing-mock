@@ -55,8 +55,8 @@ export default function MessageItem({ message }: MessageItemProps) {
         <p
           className={`rounded-lg ${
             message.sender === "user"
-              ? "float-right bg-gray-200 text-iheart-red py-1 px-2 mb-4 rounded-full clear-both"
-              : "bg-gray-100 p-3 inline-block"
+              ? "float-right bg-gray-200 text-iheart-red text-sm py-1 px-2 mb-4 rounded-full clear-both"
+              : "bg-gray-100 p-3 inline-block text-sm"
           }`}
         >
           {message.text}
