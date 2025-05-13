@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useCallback } from "react";
 import { Message, MessageType } from "@/data/messages";
 
 export function useChat() {
@@ -11,7 +11,7 @@ export function useChat() {
         },
     ]);
 
-    const addNewMessage = (text: string, sender: "user" | "bot", messageType: MessageType = "text", contentId?: string) => {
+    const addNewMessage = useCallback((text: string, sender: "user" | "bot", messageType: MessageType = "text", contentId?: string) => {
         const newMessage: Message = {
             id: Date.now().toString(),
             text,
@@ -21,10 +21,10 @@ export function useChat() {
             contentId,
         };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-    };
+    }, [setMessages]);
 
 
-    const handleSunglassesQuery = () => {
+    const handleSunglassesQuery = useCallback(() => {
         //sunglass chat logic 
         setTimeout(() => {
             setMessages((prevMessages) => [
@@ -66,10 +66,16 @@ export function useChat() {
                 }, 6000);
             }, 3000);
         }, 10);
-    };
+    },[addNewMessage, setMessages]);
 
-    const handleLipstickQuery = () => {
-        //sunglass chat logic 
+    const handleLipstickQuery = useCallback((text: string) => {
+        const showCheaperOption = text.toLowerCase().includes("cheap")
+            || text.toLowerCase().includes("budget")
+            || text.toLowerCase().includes("less expensive")
+            || text.toLowerCase().includes("budget")
+            || text.toLowerCase().includes("cheaper");
+
+
         setTimeout(() => {
             setMessages((prevMessages) => [
                 ...prevMessages,
@@ -78,34 +84,20 @@ export function useChat() {
                     text: "",
                     sender: "bot",
                     timestamp: new Date(),
-                    messageType: "product-lipstick",
+                    messageType: showCheaperOption ? "product-budget-lipstick" : "product-lipstick",
                 },
             ]);
-
-            setTimeout(() => {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    {
-                        id: Date.now().toString(),
-                        text: "",
-                        sender: "bot",
-                        timestamp: new Date(),
-                        messageType: "podcast-rec",
-                        contentId: "podcast-001",
-                    },
-                ]);
-            }, 6000);
         }, 1000);
-    };
+    },[addNewMessage, setMessages]);
 
-    const handleSendMessage = (text: string) => {
+    const handleSendMessage = useCallback((text: string) => {
         // user message
         addNewMessage(text, "user");
 
         if (["sunglasses", "sun", "shades"].some((keyword) => text.toLowerCase().includes(keyword))) {
             handleSunglassesQuery();
         } else if (text.toLowerCase().includes("lipstick")) {
-            handleLipstickQuery();
+            handleLipstickQuery(text);
         } else {
             // bot response
             setTimeout(() => {
@@ -113,6 +105,8 @@ export function useChat() {
             }, 1000);
         }
 
-    };
+    }, [addNewMessage, handleSunglassesQuery, handleLipstickQuery]);
+    
     return { messages, handleSendMessage };
+
 }

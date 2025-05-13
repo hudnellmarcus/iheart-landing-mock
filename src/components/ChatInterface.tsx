@@ -4,22 +4,31 @@ import Sidebar from "./Sidebar";
 import ChatInput from "./ChatInput";
 import MessageItem from "./MessageItem";
 import { useChat } from "@/hooks/useChat";
+import { Message, MessageType } from "@/data/messages";
+import { useSearchParams } from "next/navigation";
+import { useQueryStore } from "@/store/queryStore";
 
 const ChatInterface = () => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
- const { messages, handleSendMessage } = useChat();
+  const { messages, handleSendMessage } = useChat();
+  const searchParams = useSearchParams();
+  const setInitialQuery = useQueryStore((state) => state.setInitialQuery);
+  const initialQuery = useQueryStore((state) => state.initialQuery);
 
   // scroll to bottom of chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-
-    // bot response with product display for sunglasses
-  
+  useEffect(() => {
+   if(initialQuery !== undefined) {
+    handleSendMessage(initialQuery);
+    setInitialQuery(undefined);
+   }
+  }, [initialQuery, handleSendMessage, setInitialQuery]);
 
   return (
-    <div className="flex h-screen w-full items-center justify-center mt-6 overflow-hidden">
+    <div className="flex h-screen w-full mt-6 overflow-hidden">
       <div className="w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>

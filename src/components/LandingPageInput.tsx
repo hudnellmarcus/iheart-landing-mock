@@ -1,0 +1,60 @@
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useQueryStore } from "@/store/queryStore";
+
+const LandingPageInput = () => {
+  const [inputText, setInputText] = useState("");
+  const router = useRouter();
+  const setInitialQuery = useQueryStore((state) => state.setInitialQuery);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (inputText.trim()) {
+        setInitialQuery(inputText);
+      router.push(`/chat`);
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center">
+      <Image
+        src="/iHeartCashback_Horizontal_Logo_red 1.png"
+        alt="iheart cashback logo"
+        width={500}
+        height={500}
+        style={{ width: "auto", height: "auto" }}
+        className="mb-8"
+      />
+      <form onSubmit={handleSubmit} className="max-w-lg w-full relative">
+        <input
+          type="text"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          placeholder="What are you shopping for?"
+          className="w-full py-3 pl-5 pr-24 text-gray-500 outline-none border-none rounded-full shadow-sm"
+        />
+        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-3">
+          <button type="submit" className="focus: outline-none">
+            <Image
+              src="/PaperPlaneRight.png"
+              alt="send message icon"
+              width={24}
+              height={24}
+            />
+          </button>
+          <button type="button" className="focus: outline-none">
+            <Image
+              src="/microphone.png"
+              alt="iheart cashback logo"
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+export default LandingPageInput;
