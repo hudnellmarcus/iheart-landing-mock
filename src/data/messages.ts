@@ -1,3 +1,20 @@
+export type Message = {
+  id: string;
+  text: string;
+  sender: "user" | "bot";
+  timestamp: Date;
+  contentId?: string;
+  messageType?: MessageType;
+};
+
+export type MessageType = 
+  | "text"
+  | "product-sunglasses"
+  | "product-lipstick"
+  | "product-budget-lipstick"
+  | "podcast-rec"
+  | "style-rec";
+
 export type Podcast = {
     id: string;
     title: string;
