@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex w-full bg-iheart-red text-white px-4 py-4">
+    <header className="flex w-full bg-iheart-red text-white px-4 py-3">
       <div className="flex items-center justify-between w-full py-2">
         <div className="flex items-center">
           <Image

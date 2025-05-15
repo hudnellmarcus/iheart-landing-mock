@@ -15,7 +15,7 @@ export default function MessageItem({ message }: MessageItemProps) {
             return (
                 <ProductDisplay
                     products={sunglasses}
-                    title="💸 😎 Here are some stylish sunglasses that iHeart listeners are buying!"                  
+                    title="💸 😎 Alright! Here are some stylish sunglasses that iHeart listeners are buying!"                  
                 />
             );
 
@@ -55,7 +55,7 @@ export default function MessageItem({ message }: MessageItemProps) {
         <p
           className={`rounded-lg ${
             message.sender === "user"
-              ? "float-right bg-gray-200 text-iheart-red text-sm py-1 px-2 mb-4 rounded-full clear-both"
+              ? "float-right bg-gray-200 text-black text-sm py-1 px-2 mb-4 rounded-full clear-both"
               : "bg-gray-100 p-3 inline-block text-sm"
           }`}
         >

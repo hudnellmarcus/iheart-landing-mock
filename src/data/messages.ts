@@ -55,7 +55,7 @@ export const recommendations: Recommendation[] = [
         title: 'Jess Hilarious also wears Detroit Sunglasses',
         description: 'As worn by Jess Hilarious',
         imageUrl: '/jess_hilarious.png',
-        link: 'https://www.iheart.com/podcast/239-that-beauty-podcast-65281198/episode/why-youre-addicted-to-lip-balm-198602970/'
+        link: 'https://messyvisioneyewear.com/collections/best-seller'
     },
     {
         id: 'rec-002',
