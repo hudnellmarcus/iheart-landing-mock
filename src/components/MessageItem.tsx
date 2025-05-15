@@ -30,7 +30,7 @@ export default function MessageItem({ message }: MessageItemProps) {
             case "product-budget-lipstick":
                 return (
                     <ProductDisplay
-                        title="🤑 💄 No problem! Here are some Red Lipsticks at a lower price"
+                        title="🤑 💄 No problem! Here are some Red Lipsticks at a lower price."
                         products={budgetLipsticks}
                     />
                 );

@@ -8,13 +8,13 @@ type ProductDisplayProps = {
 
 export default function ProductDisplay({ title, products }: ProductDisplayProps) {
   return (
-    <div className="w-[70vw] mb-8">
-      <div className="rounded-lg p-4">
+    <div className="flex w-full mb-8">
+      <div className="flex flex-col rounded-lg">
         <div className="flex items-center gap-2 mb-4">
-          <h2 className="text-sm font-medium text-blue-800">{title}</h2>
+          <h2 className="text-sm font-medium text-black">{title}</h2>
         </div>
         
-        <div className="flex space-x-10">
+        <div className="flex space-x-4">
           {products.map(product => (
           <div key={product.id} className="hover:scale-105 transition-transform duration-200">
             <ProductCard key={product.id} product={product} />

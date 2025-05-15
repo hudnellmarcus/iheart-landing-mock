@@ -45,7 +45,7 @@ export const podcasts: Podcast[] = [
         title: `Why You're Addicted To Lip Balm With Lip Expert Sara Happ`,
         description: 'Do you ever think about your lip health? Do you have a lip care routine? Why are your lips dry even though you apply a lip balm every couple of hours? Wonder no more!',
         imageUrl: '/beauty_pod.png',
-        link: ''
+        link: 'https://www.iheart.com/podcast/239-that-beauty-podcast-65281198/episode/why-youre-addicted-to-lip-balm-198602970/'
     },
 ];        
 
@@ -55,7 +55,7 @@ export const recommendations: Recommendation[] = [
         title: 'Jess Hilarious also wears Detroit Sunglasses',
         description: 'As worn by Jess Hilarious',
         imageUrl: '/jess_hilarious.png',
-        link: 'https://messyvisioneyewear.com/collections/best-seller'
+        link: 'https://messyvisioneyewear.com/collections/best-seller/products/product_a614a2ca-3879-c1b8-44ed-b2c8c5d08d38'
     },
     {
         id: 'rec-002',
