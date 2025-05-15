@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useQueryStore } from "@/store/queryStore";
 
@@ -9,6 +9,15 @@ const LandingPageInput = () => {
   const router = useRouter();
   const setInitialQuery = useQueryStore((state) => state.setInitialQuery);
 
+  useEffect(() => {
+  const handlePopState = () => {
+    window.location.reload();
+  };
+  
+  window.addEventListener('popstate', handlePopState);
+  return () => window.removeEventListener('popstate', handlePopState);
+}, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText.trim()) {
@@ -16,6 +25,10 @@ const LandingPageInput = () => {
       router.push(`/chat`);
     }
   };
+
+  useEffect(() => {
+    setInputText("");
+    }, []);
 
   return (
     <div className="flex flex-col items-center">
