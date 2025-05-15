@@ -10,7 +10,6 @@ interface StyleRecommendationProps {
   recommendation: Recommendation;
 }
 
-interface RecommendationProps {}
 
 export const PodcastRecommendation = ({
   podcast,

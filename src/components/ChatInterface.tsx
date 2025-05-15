@@ -4,7 +4,6 @@ import Sidebar from "./Sidebar";
 import ChatInput from "./ChatInput";
 import MessageItem from "./MessageItem";
 import { useChat } from "@/hooks/useChat";
-import { Message, MessageType } from "@/data/messages";
 import { useQueryStore } from "@/store/queryStore";
 
 const ChatInterface = () => {
