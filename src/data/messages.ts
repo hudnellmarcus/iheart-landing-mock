@@ -38,7 +38,7 @@ export const podcasts: Podcast[] = [
         title: 'Cool Shades: A History of Sunglasses, an interview with Vanessa Brown',
         description: 'Vanessa Brown joins us this week to discuss the ways in which sunglasses have been used in the construction of cool and celebrity glamour.',
         imageUrl: '/dressed.png',
-        link: ''
+        link: 'https://www.iheart.com/podcast/867-dressed-the-history-of-fas-29000690/episode/cool-shades-a-history-of-70350914/'
     },
     {
         id: 'podcast-002',      
@@ -55,7 +55,7 @@ export const recommendations: Recommendation[] = [
         title: 'Jess Hilarious also wears Detroit Sunglasses',
         description: 'As worn by Jess Hilarious',
         imageUrl: '/jess_hilarious.png',
-        link: ''
+        link: 'https://www.iheart.com/podcast/239-that-beauty-podcast-65281198/episode/why-youre-addicted-to-lip-balm-198602970/'
     },
     {
         id: 'rec-002',

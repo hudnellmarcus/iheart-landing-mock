@@ -26,7 +26,7 @@ export const PodcastRecommendation = ({
               Play Episode
             </button>
           </Link>
-          <Link href={link} className="flex px-2">
+          <Link href={link} target="_blank" rel="noopener noreferrer" className="flex px-2">
             <button className="border border-iheart-red rounded-full px-8 py-2 mt-3 text-xs text-iheart-red">
               Follow
             </button>
