@@ -37,8 +37,12 @@ const LandingPageInput = () => {
         alt="iheart cashback logo"
         width={500}
         height={500}
-        style={{ width: "auto", height: "auto" }}
+         style={{ 
+            width: 'min(500px, 60vw)',
+            height: 'auto',
+          }}
         className="mb-8"
+        priority
       />
       <form onSubmit={handleSubmit} className="max-w-lg w-full relative">
         <input
