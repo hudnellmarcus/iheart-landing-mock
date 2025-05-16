@@ -11,50 +11,54 @@ const ChatInterface = () => {
   const { messages, handleSendMessage } = useChat();
   const setInitialQuery = useQueryStore((state) => state.setInitialQuery);
   const initialQuery = useQueryStore((state) => state.initialQuery);
-  
-  const processedQueriesRef = useRef(new Set<string>); // tracking processed queries 
+
+  const processedQueriesRef = useRef(new Set<string>()); // tracking processed queries
   // scroll to bottom of chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
-   if(initialQuery && !processedQueriesRef.current.has(initialQuery)) {
-    console.log("Processing initial query:", initialQuery);
+    if (initialQuery && !processedQueriesRef.current.has(initialQuery)) {
+      console.log("Processing initial query:", initialQuery);
 
-    //mark as processed immediately 
-    processedQueriesRef.current.add(initialQuery);
+      //mark as processed immediately
+      processedQueriesRef.current.add(initialQuery);
 
-    handleSendMessage(initialQuery);
-    // clear the initial query after sending
-    // this is to prevent sending the same query again when the component re-renders
-    // or when the user navigates back to the chat interface
-    setInitialQuery(undefined);
-   }
+      handleSendMessage(initialQuery);
+      // clear the initial query after sending
+      // this is to prevent sending the same query again when the component re-renders
+      // or when the user navigates back to the chat interface
+      setInitialQuery(undefined);
+    }
   }, [initialQuery, handleSendMessage, setInitialQuery]);
 
   return (
-    <div className="flex h-screen w-full mt-6">
+    <div className="flex w-full">
       <div className="w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>
 
       {/* chat area */}
-      <div className="flex-1 overflow-y-auto p-4 ml-12 flex flex-col mx-auto">
+      <div className="flex-1 overflor-y-auto flex flex-col items-center relative">
         {/* chat messages */}
-        <div className="max-w-3xl mt-auto mb-14 space-y-6">
-          {messages.map((message) => (
-            <div key={message.id} className="clear-both mb-4">
-              <MessageItem message={message} />
-            </div>
-          ))}
+        <div className="absolute inset-0 overflow-y-auto">
+          <div className="flex flex-col items-center p-4">
+            <div className="w-full max-w-3xl mb-20 space-y-6">
+              {messages.map((message) => (
+                <div key={message.id} className="clear-both mb-4">
+                  <MessageItem message={message} />
+                </div>
+              ))}
 
-          {/* Scroll anchor */}
-          <div ref={messagesEndRef} />
+              {/* Scroll anchor */}
+              <div ref={messagesEndRef} />
+            </div>
+          </div>
         </div>
 
         {/* Chat input */}
-        <div className="p-4 fixed z-10 bottom-10 right-80">
+        <div className="absolute bottom-0 p-1 left-50 right-50">
           <div className="max-w-3xl mx-auto">
             <ChatInput onSendMessage={handleSendMessage} />
           </div>

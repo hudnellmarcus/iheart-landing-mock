@@ -16,7 +16,7 @@ export const PodcastRecommendation = ({
 }: PodcastRecommendationProps) => {
   const { title, description, imageUrl, link } = podcast;
   return (
-    <div className="flex border mt-6 justify-between rounded-lg border-black/10 w-[60vw]">
+    <div className="flex border mt-6 justify-between max-w-[50vw] rounded-lg border-black/10 w-[60vw]">
       <div className="flex flex-col ml-6 mt-4">
         <span className="font-bold">{title}</span>
         <span className="text-sm">{description}</span>
@@ -49,7 +49,7 @@ export const StyleRecommendation = ({
 }: StyleRecommendationProps) => {
   const { title, description, imageUrl, link } = recommendation;
   return (
-    <div className="flex border justify-between mt-6 rounded-md border-black/10 w-[60vw]">
+    <div className="flex border justify-between mt-6 max-w-[50vw] rounded-md border-black/10 w-[60vw]">
       <div className="flex flex-col ml-6 mt-4">
         <span className="font-bold">{title}</span>
         <span className="text-sm mb-2">{description}</span>

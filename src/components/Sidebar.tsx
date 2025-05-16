@@ -2,12 +2,12 @@ import SideBarItem from "./SideBarItem";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col w-64 h-[80vh] bg-white border-r border-black/10">
-      <div className="flex-1 flex flex-col">
+    <div className="flex flex-col h-auto bg-white border-r border-black/10 overflow-y-auto">
+      <div className="flex flex-col">
         <button className="flex items-center mt-6 mx-auto py-2 px-12 bg-iheart-red rounded-xl text-white">
           + New chat
         </button>
-        <div className="flex flex-col mt-6 w-full mb-92">
+        <div className="flex flex-col mt-6 w-full">
           <SideBarItem
             icon="/ChatText.png"
             text="Cashback on Earrings"
@@ -21,7 +21,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="py-4 border-t border-black/10">
+      <div className="py-4 border-t border-black/10 mt-6">
         <div className="flex flex-col gap-1">
           <SideBarItem icon="/Trash.png" text="Clear Conversations" href="_#" />
           <SideBarItem icon="/Sun.png" text="Light Mode" href="_#" />
