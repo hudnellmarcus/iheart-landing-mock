@@ -62,6 +62,6 @@ export const recommendations: Recommendation[] = [
         title: 'Jingle Ball 2025 Tickets',
         description: 'Get 15% cashback on all tickets purchased on any capital one card',
         imageUrl: '/jingle_ball.png',
-        link: ''
+        link: 'https://www.iheart.com/content/iheartradio-events/'
     }
 ]; 

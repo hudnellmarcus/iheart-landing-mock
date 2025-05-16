@@ -1,11 +1,19 @@
 import { useState, useCallback } from "react";
 import { Message, MessageType } from "@/data/messages";
+import {
+    sunglassesSequence,
+    premiumLipstickSequence,
+    budgetLipstickSequence,
+    fallbackSequence,
+    processMessageQueue,
+} from "@/data/conversationSequences";
+
 
 export function useChat() {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: "1",
-            text: "Hi! How can I help you?",
+            text: "Hi! What are you looking for today?",
             sender: "bot",
             timestamp: new Date(),
         },
@@ -30,17 +38,7 @@ export function useChat() {
 
 
     const handleSunglassesQuery = useCallback(() => {
-        setTimeout(() => {
-            addNewMessage("", "bot", "product-sunglasses");
-
-            setTimeout(() => {
-                addNewMessage("", "bot", "style-rec", "rec-001");
-
-                setTimeout(() => {
-                    addNewMessage("", "bot", "podcast-rec", "podcast-001");
-                }, 6000);
-            }, 3000);
-        }, 10);
+       processMessageQueue(sunglassesSequence, addNewMessage);
     }, [addNewMessage]);
 
     const handleLipstickQuery = useCallback((text: string) => {
@@ -49,20 +47,7 @@ export function useChat() {
             || text.toLowerCase().includes("less expensive")
             || text.toLowerCase().includes("cheaper");
 
-        setTimeout(() => {
-            if (showCheaperOption) {
-                addNewMessage(
-                    "", "bot", "product-budget-lipstick");
-                    setTimeout(() => {
-                        addNewMessage("", "bot", "style-rec", "rec-002");
-                    }, 5000);
-            } else {
-                addNewMessage("", "bot", "product-lipstick");
-                setTimeout(() => {
-                    addNewMessage("", "bot", "podcast-rec", "podcast-002");
-                }, 3000);
-            }
-        }, 1000);
+       processMessageQueue(showCheaperOption ? budgetLipstickSequence : premiumLipstickSequence, addNewMessage);   
     }, [addNewMessage]);
 
     const handleSendMessage = useCallback((text: string) => {
@@ -74,10 +59,7 @@ export function useChat() {
         } else if (text.toLowerCase().includes("lipstick")) {
             handleLipstickQuery(text);
         } else {
-            // bot response
-            setTimeout(() => {
-                addNewMessage("I'm sorry, I didn't understand that.", "bot");
-            }, 1000);
+           processMessageQueue(fallbackSequence, addNewMessage);
         }
 
     }, [addNewMessage, handleSunglassesQuery, handleLipstickQuery]);
