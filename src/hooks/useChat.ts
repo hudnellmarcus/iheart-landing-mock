@@ -11,12 +11,12 @@ import {
 
 export function useChat() {
     const [messages, setMessages] = useState<Message[]>([
-        {
+     /*   {
             id: "1",
             text: "Hi! What are you looking for today?",
             sender: "bot",
             timestamp: new Date(),
-        },
+        }, */
     ]);
 
     const addNewMessage = useCallback((
