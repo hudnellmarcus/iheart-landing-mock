@@ -64,9 +64,9 @@ export const recommendations: Recommendation[] = [
     },
     {
         id: 'rec-002',
-        title: 'Jingle Ball 2025 Tickets',
-        description: 'Get 15% cashback on all tickets purchased on any capital one card',
-        imageUrl: '/jingle_ball.png',
+        title: 'iHeart Upcoming events',
+        description: 'Get 15% cashback on all tickets purchased on any capital one card.',
+        imageUrl: '/iheart upcoming.webp',
         link: 'https://www.iheart.com/content/iheartradio-events/',
         message: `Looking for somewhere to wear your new lipstick? Check out iHeart Radio’s upcoming event list!`
     }

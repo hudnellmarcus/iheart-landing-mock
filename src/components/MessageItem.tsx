@@ -21,7 +21,7 @@ export default function MessageItem({ message }: MessageItemProps) {
     case "product-lipstick":
       return (
         <ProductDisplay
-          title="Got it! There are many great lipsticks on the market. If you can provide more details about the finish you prefer (matte, satin, glossy, sheer), undertone (cool, warm, neutral) or any other special features, I think I can narrow the options a bit more. Or, if you just want a recommendation right now, here are three great products across different categories:"
+          title="🤑 💄 Got it! There are many great lipsticks on the market. If you can provide more details about the finish you prefer (matte, satin, glossy, sheer), undertone (cool, warm, neutral) or any other special features, I think I can narrow the options a bit more. Or, if you just want a recommendation right now, here are three great products across different categories:"
           products={premiumLipsticks}
         />
       );
@@ -29,7 +29,7 @@ export default function MessageItem({ message }: MessageItemProps) {
     case "product-budget-lipstick":
       return (
         <ProductDisplay
-          title="Absolutely! Here are several excellent red lipsticks available at affordable prices. Here are three options, all for less than $25."
+          title="💃🏻 🪩 Absolutely! Here are several excellent red lipsticks available at affordable prices. Here are three options, all for less than $25."
           products={budgetLipsticks}
         />
       );
