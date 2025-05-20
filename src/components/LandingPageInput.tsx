@@ -31,14 +31,14 @@ const LandingPageInput = () => {
     }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-[90vw] p-4">
       <Image
         src="/iHeartCashback_Horizontal_Logo_red 1.png"
         alt="iheart cashback logo"
         width={500}
-        height={500}
+        height={45}
          style={{ 
-            width: 'min(500px, 60vw)',
+            width: 'min(500px, 60vw) max(700px)',
             height: 'auto',
           }}
         className="mb-8"
@@ -50,15 +50,15 @@ const LandingPageInput = () => {
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           placeholder="What are you shopping for?"
-          className="w-full py-3 pl-5 pr-24 text-gray-500 outline-none border-none rounded-full shadow-sm"
+          className="text-xs md:text-lg w-full py-3 pl-5 pr-24 text-gray-500 outline-none border-gray-300 border rounded-full shadow-md"
         />
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-3">
           <button type="submit" className="focus: outline-none">
             <Image
               src="/PaperPlaneRight.png"
               alt="send message icon"
-              width={24}
-              height={24}
+              width={20}
+              height={20}
             />
           </button>
           <button type="button" className="focus: outline-none">
