@@ -13,6 +13,7 @@ const ChatInterface = () => {
   const initialQuery = useQueryStore((state) => state.initialQuery);
 
   const processedQueriesRef = useRef(new Set<string>()); // tracking processed queries
+  
   // scroll to bottom of chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -34,17 +35,17 @@ const ChatInterface = () => {
   }, [initialQuery, handleSendMessage, setInitialQuery]);
 
   return (
-    <div className="flex w-full">
-      <div className="w-64 h-full flex-shrink-0 border-r border-gray-200">
+    <div className="flex w-full flex-1 overflow-hidden">
+      <div className="hidden md:block w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>
 
       {/* chat area */}
-      <div className="flex-1 overflor-y-auto flex flex-col items-center relative">
+      <div className="flex-1 overflow-y-auto flex flex-col items-center relative">
         {/* chat messages */}
         <div className="absolute inset-0 overflow-y-auto">
-          <div className="flex flex-col items-center p-4">
-            <div className="w-full max-w-3xl mb-20 space-y-6">
+          <div className="flex flex-col items-center min-h-full p-4">
+            <div className="w-full max-w-3xl mb-20 space-y-6 mt-auto mx-auto">
               {messages.map((message) => (
                 <div key={message.id} className="clear-both mb-4">
                   <MessageItem message={message} />
@@ -58,7 +59,7 @@ const ChatInterface = () => {
         </div>
 
         {/* Chat input */}
-        <div className="absolute bottom-0 p-1 left-50 right-50">
+        <div className="absolute bottom-0 p-1 left-0 right-0">
           <div className="max-w-3xl mx-auto">
             <ChatInput onSendMessage={handleSendMessage} />
           </div>

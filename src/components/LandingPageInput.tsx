@@ -50,7 +50,7 @@ const LandingPageInput = () => {
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           placeholder="What are you shopping for?"
-          className="text-xs md:text-lg w-full py-3 pl-5 pr-24 text-gray-500 outline-none border-gray-300 border md:border-0 rounded-full shadow-md"
+          className="text-xs md:text-lg w-full py-3 pl-5 pr-24 text-gray-500 outline-none border-gray-200 border md:border-0 rounded-full shadow-md"
         />
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-3">
           <button type="submit" className="focus: outline-none">
