@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useSidebarStore } from "@/store/sidebarStore";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
