@@ -8,8 +8,6 @@ interface ChatInputProps {
 
 const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   const [inputText, setInputText] = useState("");
-  const { toggle: toggleSidebar } = useSidebarStore();
-
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
