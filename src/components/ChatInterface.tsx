@@ -35,7 +35,7 @@ const ChatInterface = () => {
   }, [initialQuery, handleSendMessage, setInitialQuery]);
 
   return (
-    <div className="flex w-full flex-1 overflow-hidden">
+    <div className="flex w-full flex-1 overflow-auto">
       <div className="hidden md:block w-64 h-full flex-shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>
@@ -45,7 +45,7 @@ const ChatInterface = () => {
         {/* chat messages */}
         <div className="absolute inset-0 overflow-y-auto">
           <div className="flex flex-col items-center min-h-full p-4">
-            <div className="w-full max-w-3xl mb-20 space-y-6 mt-auto mx-auto">
+            <div className="w-full max-w-4xl md:max-w-5xl mb-20 space-y-6 mt-auto mx-auto">
               {messages.map((message) => (
                 <div key={message.id} className="clear-both mb-4">
                   <MessageItem message={message} />

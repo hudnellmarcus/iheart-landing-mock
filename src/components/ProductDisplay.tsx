@@ -14,7 +14,7 @@ export default function ProductDisplay({ title, products }: ProductDisplayProps)
           <h2 className="text-sm font-medium text-black">{title}</h2>
         </div>
         
-        <div className="flex overflow-x-auto space-x-3 md:space-x-4">
+        <div className="flex overflow-x-auto md:overflow-hidden space-x-3 md:space-x-6">
           {products.map(product => (
           <div key={product.id} className="md:hover:scale-105 transition-transform duration-200">
             <ProductCard key={product.id} product={product} />

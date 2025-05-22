@@ -22,7 +22,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between bg-gray-200 py-3 rounded-lg w-full md:w-[50vw]"
+      className="flex justify-between bg-gray-200 py-3 mb-2 rounded-lg w-full md:w-[50vw]"
     >
       <div className="flex px-4 gap-4">
         <button 
