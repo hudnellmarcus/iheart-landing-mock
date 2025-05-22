@@ -16,11 +16,11 @@ export const PodcastRecommendation = ({
   const { title, description, imageUrl, link, message } = podcast;
   return (
     <div className="flex flex-col">
-      <p className="font-medium text-black text-sm p-2">{message}</p>
-      <div className="flex border justify-between max-w-[50vw] rounded-lg border-black/10 w-[60vw]">
+      <p className="font-medium text-black text-sm md:text-base p-2">{message}</p>
+      <div className="flex border justify-between rounded-lg border-black/10 md:w-[50vw]">
         <div className="flex flex-col ml-6 mt-4">
-          <span className="font-bold">{title}</span>
-          <span className="text-sm">{description}</span>
+          <span className="font-bold text-sm md:text-base">{title}</span>
+          <span className="text-xs md:text-sm">{description}</span>
           <div className="flex mb-2 mt-2">
             <Link href={link} className="flex">
               <button className="bg-iheart-red rounded-full px-4 py-2 mt-3 text-xs text-white">
@@ -44,7 +44,7 @@ export const PodcastRecommendation = ({
           alt="podcast image"
           width={159}
           height={150}
-          className="object-contain ml-2"
+          className="object-contain ml-2 hidden md:block"
         />
       </div>
     </div>
@@ -57,10 +57,10 @@ export const StyleRecommendation = ({
   const { title, description, imageUrl, link, message } = recommendation;
   return (
     <div className="flex flex-col">
-      <p className="font-medium text-black text-sm p-2">{message}</p>
-      <div className="flex border justify-between max-w-[50vw] rounded-md border-black/10 w-[60vw]">
+      <p className="font-medium text-black text-sm md:text-base p-2">{message}</p>
+      <div className="flex border justify-between rounded-md border-black/10 md:w-[50vw]">
         <div className="flex flex-col ml-6 mt-4">
-          <span className="font-bold">{title}</span>
+          <span className="font-bold text-sm md:text-base">{title}</span>
           <span className="text-sm mb-2">{description}</span>
           <div className="flex">
             <Link href={link} className="flex px-2">
