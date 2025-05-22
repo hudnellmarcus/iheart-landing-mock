@@ -11,6 +11,10 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   const [inputText, setInputText] = useState("");
   const { toggle: toggleSidebar } = useSidebarStore();
 
+  const handleToggleSidebar = () => {
+    toggleSidebar();
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText.trim()) {
@@ -22,38 +26,28 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between bg-gray-200 py-3 mb-2 rounded-lg w-full md:w-[50vw]"
+      className=" flex-col justify-center bg-gray-200 py-3 px-4 md:px-0 mb-2 h-20 rounded-lg w-full md:w-[50vw]"
     >
-      <div className="flex px-4 gap-4">
-        <button 
-          type="button" 
-          className="block md:hidden" 
-          onClick={toggleSidebar}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12H21M3 6H21M3 18H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <Image src="/Image.png" alt="image icon" width={20} height={20} />
-        <Image src="/microphone.png" alt="microhpone" width={28} height={28} />
-      </div>
-      <input
-        type="text"
-        placeholder="Type message"
-        onChange={(e) => setInputText(e.target.value)}
-        value={inputText}
-        className="w-full outline-none"
-      />
-
-      <button type="submit">
-        <Image
-          src="/PaperPlaneRight.png"
-          alt="send"
-          width={24}
-          height={24}
-          className="mr-4"
+      <div className="flex">
+        <input
+          type="text"
+          placeholder="Type message"
+          onChange={(e) => setInputText(e.target.value)}
+          value={inputText}
+          className="w-full px-4 outline-none"
         />
-      </button>
+        <button type="submit">
+          <img
+            src="/PaperPlaneRight.svg"
+            alt="send"
+            className="mr-6 px-2 w-full h-full"
+          />
+        </button>
+      </div>
+      <div className="flex w-24 items-center justify-between px-4 mt-2">
+        <img src="/image_vector.svg" alt="image icon" className="w-6 h-6" />
+        <img src="/Microphone.svg" alt="microhpone" className="w-6 h-6" />
+      </div>
     </form>
   );
 };
