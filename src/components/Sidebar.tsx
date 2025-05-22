@@ -2,7 +2,7 @@ import SideBarItem from "./SideBarItem";
 import { useSidebarStore } from "@/store/sidebarStore";
 
 const Sidebar = () => {
-  const { isOpen, close } = useSidebarStore();
+  const { isOpen } = useSidebarStore();
 
   return (
     <div className={`

@@ -6,7 +6,6 @@ import MessageItem from "./MessageItem";
 import { useChat } from "@/hooks/useChat";
 import { useQueryStore } from "@/store/queryStore";
 import { useSidebarStore } from "@/store/sidebarStore";
-import Image from "next/image";
 
 const ChatInterface = () => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);

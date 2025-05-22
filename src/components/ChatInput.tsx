@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { useSidebarStore } from "@/store/sidebarStore";
 
 interface ChatInputProps {
@@ -11,9 +10,6 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
   const [inputText, setInputText] = useState("");
   const { toggle: toggleSidebar } = useSidebarStore();
 
-  const handleToggleSidebar = () => {
-    toggleSidebar();
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
