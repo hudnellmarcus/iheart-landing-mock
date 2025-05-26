@@ -51,6 +51,16 @@ export const podcasts: Podcast[] = [
         link: 'https://www.iheart.com/podcast/239-that-beauty-podcast-65281198/episode/why-youre-addicted-to-lip-balm-198602970/',
         message: `Do you ever think about your lip health? Lip expert, Sara Happ, gives iHeart listeners a crash course on how to care for your kissers!`
     },
+
+    {
+        id: 'podcast-003',
+        title: `Glamour's 2024 Women of the Year`,
+        description: `Watch Every Moment from Glamour’s 2024 Women of the Year Red Carpet`,
+        imageUrl: '/woty.png',
+        link: 'https://www.glamour.com/video/watch/woty-2024-replay',
+        message: `Check out Glamour's Women of the Year!`
+    }
+
 ];        
 
 export const recommendations: Recommendation[] = [
@@ -69,5 +79,13 @@ export const recommendations: Recommendation[] = [
         imageUrl: '/iheart upcoming.webp',
         link: 'https://www.iheart.com/content/iheartradio-events/',
         message: `Looking for somewhere to wear your new lipstick? Check out iHeart Radio’s upcoming event list!`
+    },
+    {
+        id: 'rec-003',
+        title: `Best Women's Sunglasses`,
+        description: 'Check out the 15 best sunglasses for women, according to Glamour editors & fashion experts',
+        imageUrl: '/best_sunglasses.jpg',
+        link: 'https://www.glamour.com/gallery/best-womens-sunglasses',
+        message: `Here's an article by Glamour on the best sunglasses for women!`
     }
 ]; 

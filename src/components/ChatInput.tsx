@@ -27,7 +27,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
           placeholder="Type message"
           onChange={(e) => setInputText(e.target.value)}
           value={inputText}
-          className="w-full px-4 outline-none"
+          className="w-full px-4 outline-none text-base"
         />
         <button type="submit">
           <img

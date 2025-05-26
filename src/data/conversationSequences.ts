@@ -23,14 +23,14 @@ export const sunglassesSequence: MessageSequenceItem[] = [
   {
     text: "",
     type: "style-rec",
-    contentId: "rec-001",
+    contentId: "rec-003",
     delay: 10000
   },
 
   {
     text: "",
     type: "podcast-rec",
-    contentId: "podcast-001",
+    contentId: "podcast-003",
     delay: 10000
   }
 ];

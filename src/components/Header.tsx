@@ -34,7 +34,7 @@ const Header = () => {
         <div className="flex items-center justify-between w-full py-2">
           <div className="flex items-center">
             <Image
-              src="/iHeartRadio_Logo_iHR Horizontal Black 2.png"
+              src="/Glamour-Logo_1.svg"
               alt="logo"
               className="ml-2 md:ml-6 mr-2 md:mr-6"
               width={100}

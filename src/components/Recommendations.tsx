@@ -20,7 +20,7 @@ export const PodcastRecommendation = ({
       <div className="flex border justify-between rounded-lg border-black/10 md:w-[50vw]">
         <div className="flex flex-col ml-6 mt-4">
           <span className="font-bold text-sm md:text-base">{title}</span>
-          <span className="text-xs md:text-sm">{description}</span>
+          <span className="text-xs md:text-sm mr-2 py-2">{description}</span>
           <div className="flex mb-2 mt-2">
             <Link href={link} className="flex">
               <button className="bg-iheart-red rounded-full px-4 py-2 mt-3 text-xs text-white">
@@ -61,7 +61,7 @@ export const StyleRecommendation = ({
       <div className="flex border justify-between rounded-md border-black/10 md:w-[50vw]">
         <div className="flex flex-col ml-6 mt-4">
           <span className="font-bold text-sm md:text-base">{title}</span>
-          <span className="text-sm mb-2">{description}</span>
+          <span className="text-sm mb-2 py-2">{description}</span>
           <div className="flex">
             <Link href={link} className="flex px-2">
               <button className="bg-iheart-red rounded-full px-4 py-2 mb-2 mt-3 text-xs text-white">
