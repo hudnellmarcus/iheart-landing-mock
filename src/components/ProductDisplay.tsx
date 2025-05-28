@@ -11,7 +11,7 @@ export default function ProductDisplay({ title, products }: ProductDisplayProps)
     <div className="w-full mb-6 px-2 sm:px-0">
       <div className="flex flex-col rounded-lg">
         <div className="flex items-center gap-2 mb-4">
-          <h2 className="text-sm font-medium text-black">{title}</h2>
+          <h2 className="text-sm md:text-base font-medium text-black">{title}</h2>
         </div>
         
         <div className="flex overflow-x-auto md:overflow-hidden space-x-3 md:space-x-6">

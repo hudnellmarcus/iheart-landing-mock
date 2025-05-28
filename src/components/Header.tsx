@@ -34,12 +34,12 @@ const Header = () => {
         <div className="flex items-center justify-between w-full py-2">
           <div className="flex items-center">
             <Image
-              src="/Glamour-Logo_1.svg"
+              src="/iHeartRadio_Logo_iHR Horizontal Black 2.png"
               alt="logo"
               className="ml-2 md:ml-6 mr-2 md:mr-6"
-              width={100}
-              height={100}
-              style={{ width: "min(80px)", height: "auto" }}
+              width={125}
+              height={125}
+              style={{ width: "min(100px)", height: "auto" }}
               priority
             />
             {/* Desktop Nav Links */}
@@ -56,14 +56,14 @@ const Header = () => {
             {/* Icons */}
             <div className="flex items-center space-x-2 px-2 md:px-4">
               <Image
-                src="/ri_question-fill.png"
+                src="/ri_question-fill.svg"
                 alt="question"
                 className=""
                 width={25}
                 height={25}
               />
               <Image
-                src="/ri_notification-2-fill.png"
+                src="/ri_notification-2-fill.svg"
                 alt="notification"
                 className=""
                 width={25}
