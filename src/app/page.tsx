@@ -73,7 +73,7 @@ const IHeartLanding = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Shop Button */}
       <Link href="/shop">
-        <div className="fixed flex flex-col items-center justify-center md:bottom-12 md:right-12 bottom-6 right-6 bg-gray-200 md:px-5 px-3 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 border border-gray-200">
+        <div className="fixed flex flex-col items-center justify-center md:bottom-12 md:right-12 bottom-6 right-6 bg-gray-200 px-4 py-1 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 border border-gray-200">
           <img
             src="/shopping-cart-icon.svg"
             alt="Shop"
@@ -89,11 +89,11 @@ const IHeartLanding = () => {
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-iheart-red rounded-full flex items-center justify-center">
                   <Radio className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-gray-900">iHeart</span>
-                <span className="hidden sm:inline bg-red-600 text-white text-xs px-2 py-1 rounded">
+                <span className="hidden sm:inline bg-iheart-red text-white text-xs px-2 py-1 rounded-full">
                   Upgrade
                 </span>
               </div>
@@ -216,7 +216,7 @@ const IHeartLanding = () => {
                   News
                 </a>
                 <div className="border-t border-gray-200 mt-2 pt-2">
-                  <span className="inline-block mx-3 my-2 bg-red-600 text-white text-xs px-3 py-1 rounded">
+                  <span className="inline-block mx-3 my-2 bg-red-600 text-white text-xs px-3 py-1 rounded-full">
                     Upgrade
                   </span>
                 </div>
@@ -228,34 +228,44 @@ const IHeartLanding = () => {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900 overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-gray-200"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-white text-center lg:text-left">
+            <div className="text-black text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
                 All your favorite music, radio and podcasts, all free.
               </h1>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold transition-colors">
+                <button className="bg-iheart-red hover:bg-red-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold transition-colors">
                   Get Started
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 rounded-full font-semibold transition-colors">
+                <button className="border border-black text-black hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 rounded-full font-semibold transition-colors">
                   Get the App
                 </button>
               </div>
             </div>
 
             <div className="relative mt-8 lg:mt-0">
-              <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg p-6 sm:p-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-400/20"></div>
-                <div className="relative flex items-center justify-center h-48 sm:h-64">
+              <div className="relative">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg relative overflow-hidden w-full h-48 sm:h-64 object-cover"
+                >
+                  <source
+                    src="https://web-static.pages.iheart.com/welcome/web_home_video_loop.mp4"
+                    type="video/mp4"
+                  />
+                  {/* Fallback gradient if video fails to load */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-600"></div>
+                </video>
+
+                {/* Keep your play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
                     <Play className="w-8 h-8 sm:w-10 sm:h-10 text-gray-800 ml-1" />
                   </div>
-                </div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <div className="text-sm opacity-80">Now Playing</div>
-                  <div className="font-semibold">Featured Artist</div>
                 </div>
               </div>
             </div>
@@ -413,7 +423,7 @@ const IHeartLanding = () => {
       </section>
 
       {/* App Download Section */}
-      <section className="bg-gray-100 py-12 sm:py-16">
+      <section className="bg-gray-200 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left">
