@@ -9,9 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Add your custom colors here
-        'iheart-red': '#C6002B',
-        // Add more as needed
+          // custom colors here
+          'iheart-red': '#C6002B',
       },
     },
   },
