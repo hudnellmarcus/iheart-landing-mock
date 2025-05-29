@@ -73,13 +73,13 @@ const IHeartLanding = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Shop Button */}
       <Link href="/shop">
-        <div className="fixed flex flex-col items-center justify-center md:bottom-12 md:right-12 bottom-6 right-6 bg-gray-200 px-4 py-1 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 border border-gray-200">
+        <div className="fixed flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 md:bottom-12 md:right-12 bottom-6 right-6 bg-iheart-red/80 px-4 py-1 rounded-full shadow-lg z-50 border border-gray-200">
           <img
             src="/shopping-cart-icon.svg"
             alt="Shop"
-            className="md:w-12 md:h-12 w-8 h-8 hover:scale-110 transition-all duration-300"
+            className="md:w-12 md:h-12 w-8 h-8"
           />
-          <span className="text-sm">Shop</span>
+          <span className="text-sm text-white font-bold">Shop</span>
         </div>
       </Link>
       {/* Header */}
