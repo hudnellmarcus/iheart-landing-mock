@@ -1,10 +1,12 @@
 import ChatInterface from "@/components/ChatInterface"
-
+import ChatLayout from "@/components/ChatLayout";
 const Chat = () => {
     return (
-        <div className="flex-1 flex overflow-hidden">
-        <ChatInterface />
-        </div>
+        <ChatLayout>
+            <div className="flex-1 flex overflow-hidden">
+                <ChatInterface />
+            </div>
+        </ChatLayout>
     )
 }
 
