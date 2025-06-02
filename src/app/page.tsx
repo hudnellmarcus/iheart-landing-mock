@@ -486,7 +486,7 @@ const IHeartLanding = () => {
   );
 };
 
-// export default IHeartLanding;
+export default IHeartLanding;
 // import Footer from "@/components/Footer";
 // import LandingPageInput from "@/components/LandingPageInput";
 // import ChatLayout from "@/components/ChatLayout";
