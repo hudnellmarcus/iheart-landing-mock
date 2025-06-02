@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "iHeart Rewards",
-  description: "A rewards program for iHeartRadio listeners.",
+  title: "iHeart Landing Page Mock",
+  description: "Mock landing page for iHeartRadio.com",
 };
 
 export default function RootLayout({
